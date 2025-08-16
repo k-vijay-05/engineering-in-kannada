@@ -4,6 +4,8 @@ import * as LucideIcons from 'lucide-react';
 import { ExternalLink } from 'lucide-react';
 import linksData from '../data/links.json';
 import { LinkCategory } from '../types';
+import { ScrollToTop } from "../components/ScrollToTop"; 
+
 
 // Dynamic icon component
 const DynamicIcon = ({ iconName }: { iconName: string }) => {
@@ -16,6 +18,7 @@ export function LinksPage() {
 
   return (
     <div className="min-h-screen bg-dark">
+      <ScrollToTop />
       <Header />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
@@ -51,7 +54,7 @@ export function LinksPage() {
                           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src = `https://via.placeholder.com/800x400?text=${link.title}`;
+                            target.src = `https://dummyimage.com/800x400/1a1a1a/ffffff&text=${encodeURIComponent(link.title)}`;
                           }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
