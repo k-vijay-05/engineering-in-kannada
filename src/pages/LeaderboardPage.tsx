@@ -18,7 +18,7 @@ export function LeaderboardPage() {
         setLoading(true);
         setError(null);
         const data = await fetchLeaderboardData();
-        setContributors(data);
+        setContributors(data.slice(0, 10));
       } catch (err) {
         setError("Failed to load contributor data. Please try again later.");
         console.error("Error loading contributors:", err);
